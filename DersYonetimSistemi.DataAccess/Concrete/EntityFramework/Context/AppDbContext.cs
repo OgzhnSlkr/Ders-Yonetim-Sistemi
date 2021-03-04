@@ -8,7 +8,7 @@ using DersYonetimSistemi.Entities.Concrete;
 using DersYonetimSistemi.Core.Abstract;
 using DersYonetimSistemi.Entities.Concrete.AssociationEntities;
 
-namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework
+namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework.Context
 {
     public class AppDbContext : IdentityDbContext<User, Role, int>
     {
