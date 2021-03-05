@@ -12,15 +12,7 @@ namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework.Context
 {
     public class AppDbContext : IdentityDbContext<User, Role, int>
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
-        {
-
-        }
-        public AppDbContext()
-        {
-             
-        }
+        
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Message> Messages { get; set; }
@@ -30,6 +22,11 @@ namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework.Context
         public DbSet<LessonDepartment> LessonDepartments { get; set; }
         public DbSet<UserMessage> UserMessages { get; set; }
         public DbSet<LessonMessage> LessonMessages { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=.; Database=DersYonetimDB; Trusted_Connection=True");
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

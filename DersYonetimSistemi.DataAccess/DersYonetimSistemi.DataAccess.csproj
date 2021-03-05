@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DersYonetimSistemi.Core\DersYonetimSistemi.Core.csproj" />
     <ProjectReference Include="..\DersYonetimSistemi.Entities\DersYonetimSistemi.Entities.csproj" />
   </ItemGroup>
 

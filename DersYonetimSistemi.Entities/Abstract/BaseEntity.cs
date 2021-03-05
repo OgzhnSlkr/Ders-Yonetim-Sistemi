@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DersYonetimSistemi.Entities.Abstract
 {
-    public class BaseEntity
+    public class BaseEntity : IEntity
     {
         public BaseEntity()
         {

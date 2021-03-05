@@ -8,17 +8,19 @@ using System.Text;
 
 namespace DersYonetimSistemi.Entities.Abstract
 {
-    public abstract class IdentityUserBaseEntity : IEntity
+    public abstract class IdentityUserBaseEntity : IdentityUser<int>, IEntity
     {
-        public IdentityUser<int> IdentityBase { get; set; }
-        public BaseEntity Base { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public DateTime DeletedDate { get; set; }
+
         protected IdentityUserBaseEntity()
         {
-            IdentityBase = new IdentityUser<int>();
-            Base = new BaseEntity();
+            IsDeleted = false;
+            ModifiedDate = DateTime.Now;
         }
 
-        
-       
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 using DersYonetimSistemi.Core.Abstract;
-using DersYonetimSistemi.Entities.Abstract;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 namespace DersYonetimSistemi.Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity,TContext> : IEntityRepository<TEntity>
-        where TEntity: BaseEntity, IEntity, new()
+        where TEntity: class, IEntity, new()
         where TContext : DbContext, new()
     {
         
@@ -51,6 +51,7 @@ namespace DersYonetimSistemi.Core.DataAccess.EntityFramework
                 entity.IsDeleted = true;
                 entity.DeletedDate = DateTime.Now;
                 var deletedEntity = context.Entry(entity);
+                
                 deletedEntity.State = EntityState.Modified;
                 var result = context.SaveChanges();
                 return result > 0 ? true : false;

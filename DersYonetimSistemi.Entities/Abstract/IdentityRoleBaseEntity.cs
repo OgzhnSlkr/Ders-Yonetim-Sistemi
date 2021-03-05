@@ -6,14 +6,17 @@ using System.Text;
 
 namespace DersYonetimSistemi.Entities.Abstract
 {
-    public abstract class IdentityRoleBaseEntity :  IEntity
+    public abstract class IdentityRoleBaseEntity : IdentityRole<int>, IEntity
     {
-        public IdentityRole<int> IdentityBase { get; set; }
-        public BaseEntity Base { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public DateTime DeletedDate { get; set; }
+
         protected IdentityRoleBaseEntity()
         {
-            IdentityBase = new IdentityRole<int>();
-            Base = new BaseEntity();
+            IsDeleted = false;
+            ModifiedDate = DateTime.Now;
         }
 
         

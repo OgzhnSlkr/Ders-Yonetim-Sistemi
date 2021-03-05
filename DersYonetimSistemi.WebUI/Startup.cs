@@ -32,7 +32,8 @@ namespace DersYonetimSistemi.WebUI
         {
             services.AddControllersWithViews();
             services.AddMvc();
-            services.AddDbContext<AppDbContext>(_ => _.UseSqlServer(Configuration["ConnectionStrings:SqlServerConnectionString"]));
+            //services.AddDbContext<AppDbContext>(_ => _.UseSqlServer(Configuration["ConnectionStrings:SqlServerConnectionString"]));
+            services.AddDbContext<AppDbContext>();
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>();
 
             services.Configure<IdentityOptions>(options =>
