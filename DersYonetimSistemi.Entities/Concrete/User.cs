@@ -1,5 +1,5 @@
 ﻿
-using DersYonetimSistemi.Core.Abstract;
+using DersYonetimSistemi.Entities.Abstract;
 using DersYonetimSistemi.Entities.Concrete.AssociationEntities;
 using System;
 using System.Collections.Generic;

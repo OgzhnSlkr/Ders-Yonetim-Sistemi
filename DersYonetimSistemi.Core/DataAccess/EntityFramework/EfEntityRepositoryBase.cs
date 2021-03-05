@@ -1,5 +1,6 @@
 ﻿
 using DersYonetimSistemi.Core.Abstract;
+using DersYonetimSistemi.Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Text;
 namespace DersYonetimSistemi.Core.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity,TContext> : IEntityRepository<TEntity>
-        where TEntity: class, IEntity, new() 
+        where TEntity: BaseEntity, IEntity, new()
         where TContext : DbContext, new()
     {
         

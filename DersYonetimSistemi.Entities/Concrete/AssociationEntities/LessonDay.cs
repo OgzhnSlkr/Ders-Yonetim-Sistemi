@@ -1,4 +1,5 @@
 ﻿using DersYonetimSistemi.Core.Abstract;
+using DersYonetimSistemi.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;

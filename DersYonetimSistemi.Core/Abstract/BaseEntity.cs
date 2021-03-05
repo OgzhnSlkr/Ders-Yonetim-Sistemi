@@ -1,13 +1,14 @@
-﻿using System;
+﻿using DersYonetimSistemi.Core.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DersYonetimSistemi.Core.Abstract
+namespace DersYonetimSistemi.Entities.Abstract
 {
-    public abstract class BaseEntity : IEntity
+    public class BaseEntity
     {
-        protected BaseEntity()
+        public BaseEntity()
         {
             IsDeleted = false;
             ModifiedDate = DateTime.Now;
