@@ -11,5 +11,8 @@ namespace DersYonetimSistemi.DataAccess.Abstract
     {
         TeacherDetailDto GetTeacherByLessonId(int lessonId);
         List<StudentDetailDto> GetAllStudents(int lessonId);
+        LessonDetailDto GetLessonDetail(int lessonId);
+        bool IsUserInLesson(int lessonId, int userId);
+        
     }
 }

@@ -39,6 +39,34 @@ namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework
             }
         }
 
+        public LessonDetailDto GetLessonDetail(int lessonId)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var numberOfStudents = context.UsersLessons.Count(l => l.LessonId == lessonId);
+                var result = from l in context.Lessons
+                             where l.Id == lessonId
+                             where l.IsDeleted == false
+                             join u in context.Users
+                             on l.TeacherId equals u.Id
+                             select new LessonDetailDto
+                             {
+                                 LessonId = l.Id,
+                                 Credit = l.LessonCredit,
+                                 Description = l.LessonDescription,
+                                 EndDate = l.EndDate,
+                                 LastAccessDate = l.LastAccessDate,
+                                 LessonCode = l.LessonCode,
+                                 LessonCrn = l.LessonCRN,
+                                 LessonName = l.LessonName,
+                                 NumberOfStudent = numberOfStudents,
+                                 StartDate = l.StartDate,
+                                 TeacherFullName = u.Name + u.Surname
+                             };
+                return result.SingleOrDefault();
+            }
+        }
+
         public TeacherDetailDto GetTeacherByLessonId(int lessonId)
         {
             using (AppDbContext context = new AppDbContext())
@@ -55,6 +83,14 @@ namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework
                                  UserId = s.TeacherId
                              };
                 return result.Single();
+            }
+        }
+
+        public bool IsUserInLesson(int lessonId, int userId)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                return context.UsersLessons.Any(z => z.Id == lessonId && z.UserId == userId);
             }
         }
     }

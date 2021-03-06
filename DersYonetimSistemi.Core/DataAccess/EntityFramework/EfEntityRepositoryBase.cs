@@ -10,11 +10,11 @@ using System.Text;
 
 namespace DersYonetimSistemi.Core.DataAccess.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity,TContext> : IEntityRepository<TEntity>
-        where TEntity: class, IEntity, new()
+    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
+        where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
-        
+
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
@@ -51,7 +51,7 @@ namespace DersYonetimSistemi.Core.DataAccess.EntityFramework
                 entity.IsDeleted = true;
                 entity.DeletedDate = DateTime.Now;
                 var deletedEntity = context.Entry(entity);
-                
+
                 deletedEntity.State = EntityState.Modified;
                 var result = context.SaveChanges();
                 return result > 0 ? true : false;
@@ -67,6 +67,16 @@ namespace DersYonetimSistemi.Core.DataAccess.EntityFramework
                 var result = context.SaveChanges();
                 return result > 0 ? true : false;
             }
+        }
+
+        public bool IsExist(Expression<Func<TEntity, bool>> filter)
+        {
+
+            using (TContext context = new TContext())
+            {
+                return context.Set<TEntity>().Where(i => i.IsDeleted == false).Any(filter);
+            }
+
         }
     }
 }
