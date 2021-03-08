@@ -9,6 +9,9 @@ namespace DersYonetimSistemi.DataAccess.Abstract
 {
     public interface IUserDal : IEntityRepository<User>
     {
-        List<UserDetailDto> GetUserDetail();
+        List<UserDetailDto> GetUsersDetail();
+        UserDetailDto GetUserDetail(int userId);
+        string GetUserRoleName(int userId);
+
     }
 }

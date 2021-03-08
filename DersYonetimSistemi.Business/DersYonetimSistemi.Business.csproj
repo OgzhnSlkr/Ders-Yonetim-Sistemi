@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\DersYonetimSistemi.Core\DersYonetimSistemi.Core.csproj" />
+    <ProjectReference Include="..\DersYonetimSistemi.DataAccess\DersYonetimSistemi.DataAccess.csproj" />
+    <ProjectReference Include="..\DersYonetimSistemi.Entities\DersYonetimSistemi.Entities.csproj" />
   </ItemGroup>
 
 </Project>
