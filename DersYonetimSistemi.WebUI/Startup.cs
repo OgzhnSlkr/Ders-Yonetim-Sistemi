@@ -15,6 +15,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DersYonetimSistemi.DataAccess.Concrete.EntityFramework.DbInitializer;
 using DersYonetimSistemi.DataAccess.Concrete.EntityFramework.Context;
+using DersYonetimSistemi.Business.Abstract;
+using DersYonetimSistemi.Business.Concrete;
+using DersYonetimSistemi.DataAccess.Abstract;
+using DersYonetimSistemi.DataAccess.Concrete.EntityFramework;
 
 namespace DersYonetimSistemi.WebUI
 {
@@ -35,6 +39,8 @@ namespace DersYonetimSistemi.WebUI
             //services.AddDbContext<AppDbContext>(_ => _.UseSqlServer(Configuration["ConnectionStrings:SqlServerConnectionString"]));
             services.AddDbContext<AppDbContext>();
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddScoped<ILessonService,LessonManager> ();
+            services.AddScoped<ILessonDal, LessonDal>();
 
             services.Configure<IdentityOptions>(options =>
             {

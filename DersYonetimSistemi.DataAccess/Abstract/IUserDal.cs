@@ -13,5 +13,6 @@ namespace DersYonetimSistemi.DataAccess.Abstract
         UserDetailDto GetUserDetail(int userId);
         string GetUserRoleName(int userId);
 
+
     }
 }

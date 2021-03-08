@@ -18,6 +18,9 @@ namespace DersYonetimSistemi.Business.Constants
         public static string OnlyRoleUpdated ="Kullanıcının sadece rolü güncellendi bilgileri güncellenemedi";
         public static string OnlyRoleRemoved = "Kullanıcı sadece rolden çıkartıldı. Yeni rol eklenemedi ve bilgileri güncellenemedi.";
         public static string AllUpdatesFailed = "Güncelleme başarısız.";
-
+        public static string UnauthorizedAccess = "Yetkisiz Erişim!";
+        public static string LessonAlreadyInDb = "Sistemde aynı CRN kodlu ders bulundu.";
+        public static string LessonAddSucceed = "Ders ekleme başarılı";
+        public static string LessonAddFailed = "Ders ekleme başarısız";
     }
 }

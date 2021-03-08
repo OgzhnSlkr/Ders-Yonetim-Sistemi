@@ -13,6 +13,8 @@ namespace DersYonetimSistemi.DataAccess.Abstract
         List<StudentDetailDto> GetAllStudents(int lessonId);
         LessonDetailDto GetLessonDetail(int lessonId);
         bool IsUserInLesson(int lessonId, int userId);
-        
+        bool IsTeacher(int userId);
+        bool IsStudent(int userId);
+
     }
 }

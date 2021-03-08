@@ -1,4 +1,5 @@
 ﻿using DersYonetimSistemi.Core.Abstract;
+using DersYonetimSistemi.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,7 @@ namespace DersYonetimSistemi.Entities.DTOs
         public DateTime LastAccessDate { get; set; }
         public string TeacherFullName { get; set; }
         public int NumberOfStudent { get; set; }
-
+        public List<DaysOfLesson> DaysOfLessons { get; set; }
+        public List<Department> Departments { get; set; }
     }
 }

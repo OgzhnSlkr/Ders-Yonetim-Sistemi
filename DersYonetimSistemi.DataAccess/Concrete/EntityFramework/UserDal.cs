@@ -76,5 +76,6 @@ namespace DersYonetimSistemi.DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+
     }
 }
